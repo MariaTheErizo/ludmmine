@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ludmmine | Estudio de videojuegos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;800&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--black:#000;--ink:#14101c;--purple:#7b2cff;--deep:#3a0ca3;--lav:#e9ddff;--white:#fff;--muted:#b9aed0}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Figtree',system-ui,sans-serif;line-height:1.6}
+h1,h2,h3,.logo{font-family:'Unbounded',system-ui,sans-serif;line-height:1.1}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--lav);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:0;z-index:10;background:rgba(0,0,0,.88);backdrop-filter:blur(8px);border-bottom:1px solid #2a2240}
+nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:800;font-size:1.25rem;letter-spacing:.02em}
+.logo span{color:var(--purple)}
+nav ul{display:flex;gap:28px;list-style:none;font-weight:600}
+nav ul a:hover{color:var(--purple)}
+.btn{display:inline-block;background:var(--purple);color:var(--white);font-weight:600;padding:14px 28px;border:0;border-radius:4px;cursor:pointer;font:600 1rem 'Figtree',sans-serif}
+.btn:hover{background:#9553ff}
+.btn.alt{background:transparent;border:2px solid var(--white)}
+.btn.alt:hover{background:var(--white);color:var(--black)}
+.hero{position:relative;overflow:hidden;padding:120px 0 110px;background:
+ linear-gradient(115deg,transparent 55%,var(--deep) 55%,var(--purple) 100%),var(--black)}
+.hero h1{font-size:clamp(2.4rem,6.5vw,5rem);font-weight:800;max-width:11em}
+.hero p{max-width:34em;margin:24px 0 36px;color:var(--lav);font-size:1.15rem}
+.hero .btn+.btn{margin-left:12px}
+@media(prefers-reduced-motion:no-preference){.hero h1{animation:in .8s ease-out both}@keyframes in{from{opacity:0;transform:translateY(24px)}}}
+section{padding:88px 0}
+h2{font-size:clamp(1.7rem,4vw,2.6rem);font-weight:800;margin-bottom:12px}
+.lead{color:var(--muted);max-width:40em;margin-bottom:44px}
+.games{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.game{background:var(--ink);border-radius:6px;overflow:hidden;border:1px solid #2a2240}
+.cover{height:190px;display:flex;align-items:flex-end;padding:18px;font:800 1.4rem 'Unbounded',sans-serif}
+.c1{background:linear-gradient(160deg,var(--purple),var(--black))}
+.c2{background:linear-gradient(200deg,var(--white) 0,var(--lav) 35%,var(--deep) 100%);color:var(--black)}
+.c3{background:linear-gradient(120deg,var(--black),var(--deep) 60%,var(--purple))}
+.game div+div{padding:18px}
+.game h3{font-size:1rem;margin-bottom:6px}
+.game p{color:var(--muted);font-size:.95rem}
+.light{background:var(--white);color:var(--black)}
+.light .lead{color:#4b4260}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px;list-style:none;counter-reset:s}
+.steps li{counter-increment:s;border-top:4px solid var(--purple);padding-top:16px}
+.steps li::before{content:counter(s);font:800 2rem 'Unbounded',sans-serif;color:var(--purple)}
+.steps h3{font-size:1.05rem;margin:6px 0}
+.steps p{color:#4b4260;font-size:.95rem}
+.clients{display:flex;flex-wrap:wrap;gap:16px 48px;font:800 1.3rem 'Unbounded',sans-serif;color:var(--muted)}
+.contact{background:linear-gradient(135deg,var(--deep),var(--purple))}
+.contact .lead{color:var(--lav)}
+form{display:grid;gap:14px;max-width:520px}
+input,textarea{width:100%;padding:14px;border-radius:4px;border:2px solid transparent;background:var(--white);color:var(--black);font:1rem 'Figtree',sans-serif}
+input:focus,textarea:focus{border-color:var(--black)}
+form .btn{background:var(--black)}
+form .btn:hover{background:var(--ink)}
+#ok{display:none;font-weight:600}
+footer{padding:32px 0;color:var(--muted);font-size:.9rem;border-top:1px solid #2a2240}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+@media(max-width:640px){nav ul{display:none}.hero .btn+.btn{margin:12px 0 0}}
+</style>
+</head>
+<body>
+<header>
+  <nav class="wrap" aria-label="Principal">
+    <a href="#inicio" class="logo">LUDM<span>MINE</span></a>
+    <ul>
+      <li><a href="#juegos">Juegos</a></li>
+      <li><a href="#proceso">Cómo trabajamos</a></li>
+      <li><a href="#clientes">Clientes</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a href="#contacto" class="btn">Haz tu pedido</a>
+  </nav>
+</header>
+
+<main id="inicio">
+  <div class="hero">
+    <div class="wrap">
+      <h1>Videojuegos hechos a la medida de tu plataforma</h1>
+      <p>Ludmmine diseña, desarrolla y lanza juegos por encargo para consolas, PC y móviles. Tú nos cuentas la idea; nosotros la convertimos en un juego listo para jugar.</p>
+      <a href="#contacto" class="btn">Pide tu juego</a>
+      <a href="#juegos" class="btn alt">Ver nuestros juegos</a>
+    </div>
+  </div>
+
+  <section id="juegos">
+    <div class="wrap">
+      <h2>Juegos que hemos creado</h2>
+      <p class="lead">Una muestra de proyectos desarrollados para nuestros clientes.</p>
+      <div class="games">
+        <article class="game"><div class="cover c1">Nebula Drift</div><div><h3>Carreras espaciales</h3><p>Velocidad, física realista y multijugador en línea para hasta 16 jugadores.</p></div></article>
+        <article class="game"><div class="cover c2">Crypt Runners</div><div><h3>Acción cooperativa</h3><p>Explora mazmorras que cambian en cada partida, solo o con amigos.</p></div></article>
+        <article class="game"><div class="cover c3">Ashfall Tactics</div><div><h3>Estrategia por turnos</h3><p>Dirige escuadrones en campañas con más de 40 horas de historia.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="proceso" class="light">
+    <div class="wrap">
+      <h2>Del pedido al lanzamiento</h2>
+      <p class="lead">Así convertimos el encargo de un cliente en un juego publicado.</p>
+      <ol class="steps">
+        <li><h3>Recibimos tu pedido</h3><p>Defines género, plataforma, público y fecha de entrega.</p></li>
+        <li><h3>Diseñamos el juego</h3><p>Creamos el concepto, el arte y un prototipo jugable para tu aprobación.</p></li>
+        <li><h3>Lo desarrollamos</h3><p>Programamos, probamos y te mostramos avances en cada entrega.</p></li>
+        <li><h3>Lo lanzamos</h3><p>Dejamos el juego listo para publicar y te damos soporte después.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="clientes">
+    <div class="wrap">
+      <h2>Trabajamos con las mejores plataformas</h2>
+      <p class="lead">Desarrollamos para editores y fabricantes que buscan juegos de calidad.</p>
+      <div class="clients"><span>Xbox</span><span>PlayStation</span><span>Nintendo</span><span>Steam</span></div>
+    </div>
+  </section>
+
+  <section id="contacto" class="contact">
+    <div class="wrap">
+      <h2>¿Tienes una idea para un juego?</h2>
+      <p class="lead">Cuéntanos qué necesitas y te respondemos en un máximo de dos días hábiles.</p>
+      <form id="f">
+        <input type="text" placeholder="Nombre de la empresa" aria-label="Nombre de la empresa" required>
+        <input type="email" placeholder="Correo de contacto" aria-label="Correo de contacto" required>
+        <textarea rows="4" placeholder="Describe el juego que quieres" aria-label="Descripción del juego" required></textarea>
+        <button class="btn" type="submit">Enviar pedido</button>
+        <p id="ok" role="status">Pedido enviado. Te escribiremos pronto.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 Ludmmine. Todos los derechos reservados.</span><span>hola@ludmmine.com</span></div>
+</footer>
+
+<script>
+document.getElementById('f').addEventListener('submit',function(e){
+  e.preventDefault();
+  document.getElementById('ok').style.display='block';
+  this.reset();
+});
+</script>
+</body>
+</html>
